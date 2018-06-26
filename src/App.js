@@ -3,7 +3,9 @@ import InfermedicaApi from "./infermedica-api";
 import settings from "./settings";
 // import DemoController from "./controller"
 import Welcome from "./components/Welcome";
-import SymptomsList from "./components/SymptomsList";
+// import SymptomsList from "./components/SymptomsList";
+import Nlp from "./components/Nlp";
+import Search from "./components/Search";
 
 class App extends Component {
   constructor() {
@@ -24,7 +26,9 @@ class App extends Component {
     return (
       <div>
         <Welcome />
-        <SymptomsList />
+        <Nlp />
+        <Search />
+        {/* <SymptomsList /> */}
       </div>
     );
   }
