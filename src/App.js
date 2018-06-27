@@ -4,8 +4,8 @@ import settings from "./settings";
 // import DemoController from "./controller"
 import Welcome from "./components/Welcome";
 // import SymptomsList from "./components/SymptomsList";
-import Nlp from "./components/Nlp";
-import Search from "./components/Search";
+// import Nlp from "./components/Nlp";
+import Result from "./components/Result";
 
 class App extends Component {
   constructor() {
@@ -26,8 +26,8 @@ class App extends Component {
     return (
       <div>
         <Welcome />
-        <Nlp />
-        <Search />
+        {/* <Nlp /> */}
+        <Result />
         {/* <SymptomsList /> */}
       </div>
     );
