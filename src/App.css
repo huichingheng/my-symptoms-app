@@ -1,5 +1,68 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url('./background-med.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.button {
+  background-color: rgb(0, 149, 218);
+  width: 100px;
+  height: 30px;
+  color:white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.header {
+  background-color: rgba(0, 149, 218, 0.90);
+  padding: 1em;
+  color:white;
+  box-shadow: 0 4px rgb(16, 139, 196); 
+}
+
+.main {
+  display: grid;
+  height: auto;
+  padding: 1em;
+  grid-template-columns: 1fr 2fr;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.left {
+  padding: 10px 30px;
+  grid-column: 1/2;
+}
+
+.right {
+  padding: 10px 30px;
+  align-self: start;
+}
+
+.email-form {
+  padding: 10px 30px;
+  align-self: end;
+}
+
+.footer {
+  height: 30px;
+  padding: 5px;
+  background-color: rgb(0, 149, 218, 0.90);
+  color:rgb(233, 233, 233);
+  font-style: italic;
   text-align: center;
+  box-shadow: 0 4px rgb(12, 126, 179);
+}
+
+.fontsize {
+  font-size: 16px;
 }
 
 .App-logo {
@@ -7,22 +70,9 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+

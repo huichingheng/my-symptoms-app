@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import InfermedicaApi from "../infermedica-api";
-import settings from "../settings";
+import EmailForm from "./EmailForm";
 
 class Result extends Component {
   constructor() {
     super();
-    this.api = new InfermedicaApi(settings["app-id"], settings["app-key"]);
+    this.api = new InfermedicaApi();
     this.state = {
       conditions: [],
       mentions: [],
@@ -14,22 +14,42 @@ class Result extends Component {
   }
 
   render() {
-    //   console.log(this.state.conditions)
     return (
-      <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input
-            type="text"
+      <div className="main">
+        <form className="left" onSubmit={event => this.handleSubmit(event)}>
+          <h4>
+            <strong>Tell us what you feel.</strong>
+          </h4>
+          <p>
+            We will try to recognize your symptoms using Natural Language
+            Processing algorithms.
+          </p>
+          <textarea
+            id="text"
+            cols="40"
+            rows="10"
+            placeholder="Text here"
             value={this.state.inputValue}
             onChange={event => this.handleChange(event)}
           />
-          <button>Search</button>
+          <button className="button">Get Report</button>
         </form>
-        <h1>results</h1>
-        {/* display each condition in state */}
-        {this.state.conditions.map((condition, i) => {
-          return <p key={i}>{condition.common_name}</p>;
-        })}
+
+        <div className="right">
+          {this.state.conditions.length !== 0 && (
+            <h3>
+              <strong>Report:</strong>
+            </h3>
+          )}
+          {this.state.conditions.map((condition, i) => {
+            return (
+              <ol className="fontsize" key={i}>
+                + {condition.common_name}{" "}
+              </ol>
+            );
+          })}
+          <EmailForm />
+        </div>
       </div>
     );
   }
@@ -46,8 +66,6 @@ class Result extends Component {
     };
 
     const response = await this.api.diagnosis(body);
-    // console.log(response)
-    // set state with response.conditions
     this.setState({
       conditions: response.conditions
     });
@@ -55,9 +73,9 @@ class Result extends Component {
 
   async getEvidence() {
     const symptoms = await this.api.parse(this.state.inputValue);
-    console.log(symptoms);
     this.setState({
-      mentions: symptoms.mentions
+      mentions: symptoms.mentions,
+      symptoms: symptoms.symptoms
     });
     const evidence = symptoms.mentions.map(mention => {
       return { id: mention.id, choice_id: mention.choice_id };
