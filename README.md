@@ -1,5 +1,5 @@
 # MySymptoms Checker
-MySymptoms Checker is an  app which diagnosis your symptoms.
+MySymptoms Checker is an app which diagnosis your symptoms.
 
 ### Getting started
 - Fork and clone repo
