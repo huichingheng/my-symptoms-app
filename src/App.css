@@ -1,5 +1,5 @@
 body {
-  margin:50px;
+  margin: 2% 5%;
   padding: 0;
   font-family: sans-serif;
   background-image: url('./background-med.jpg');
@@ -30,25 +30,26 @@ body {
 
 .main {
   display: grid;
-  height: auto;
-  padding: 1em;
-  grid-template-columns: 1fr 2fr;
+  padding: 2em;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
   background: rgba(255, 255, 255, 0.8);
 }
 
-.left {
-  padding: 10px 30px;
-  grid-column: 1/2;
-}
-
-.right {
-  padding: 10px 30px;
+form {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
   align-self: start;
 }
 
+#text {
+  height: 100px;
+}
+
 .email-form {
-  padding: 10px 30px;
-  align-self: end;
+  padding-top: 30px;
+  text-align: justify;
 }
 
 .footer {
@@ -65,4 +66,24 @@ body {
   font-size: 16px;
 }
 
+@media screen and (max-width: 768px) {
+  body {
+    margin: 5% 0%;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .button {
+    justify-self: center;
+  }
+
+}
 
