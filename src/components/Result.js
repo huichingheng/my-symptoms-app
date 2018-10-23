@@ -26,8 +26,6 @@ class Result extends Component {
           </p>
           <textarea
             id="text"
-            cols="40"
-            rows="10"
             placeholder="Text here"
             value={this.state.inputValue}
             onChange={event => this.handleChange(event)}
